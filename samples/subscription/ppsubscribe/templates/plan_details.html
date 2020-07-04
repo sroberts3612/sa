@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% set title = 'Admin' %}
+
+{% block css %}
+{% endblock %}
+
+{% block body %}
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Subscription Details</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="btn-group pull-right navbar-btn">
+          <a class="btn btn-default btn-md" href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-success">
+        <div class="panel-heading clearfix">
+          <h4 class="panel-title pull-left" style="padding-top: 7.5px;">{{ agreement.description }}</h4>
+          <div class="btn-group pull-right">
+            <a href="#" class="btn btn-default btn-sm">Suspend</a>
+            <a href="#" class="btn btn-default btn-sm">Cancel</a>
+            <a href="{{ url_for('transactions', id=agreement.id, description=agreement.description) }}" class="btn btn-default btn-sm">Payment history</a>
+          </div>
+        </div>
+        <div class="panel-body">
+          <p><b>Start Date: </b>{{ agreement.start_date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

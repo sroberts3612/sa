@@ -1,0 +1,14 @@
+*.pyc
+*.noseids
+.coverage
+build/
+dist/
+MANIFEST
+*stage-*
+*tmp*
+.*.sw*
+.ipynb
+.cache
+.tox/
+.DS_Store
+.idea

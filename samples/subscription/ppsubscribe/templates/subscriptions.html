@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% set title = 'Subscriptions' %}
+
+{% block css %}
+{% endblock %}
+
+{% block body %}
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Plans and Pricing for Customer</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="btn-group pull-right navbar-btn">
+          <a class="btn btn-default btn-md" href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-info">
+        <div class="panel-heading"><b>Plans Available</b></div>
+        <ul class="list-group">
+          {% for plan in plans %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 text-center">
+              </div>
+              <div class="col-lg-7 col-md-7 section-box">
+                <h3>{{ plan.name }} : {{ plan.description }}</h3>
+                <p><b>Type of plan: </b>{{ plan.type }}</p>
+                <p><b>Create Time: </b>{{ plan.create_time }}</p>
+                <p><b>Update Time: </b>{{ plan.update_time }}</p>
+              </div>
+              <div class="col-lg-2 col-md-2 section-box">
+              <form action="{{ url_for('subscribe', id=plan.id, name=plan.name) }}" method="post">
+                <input type="hidden" id="subscribe" name="subscribe" value="subscribe" />
+                <button class="btn btn-success btn-md" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span> Subscribe</button>
+              </form>
+
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

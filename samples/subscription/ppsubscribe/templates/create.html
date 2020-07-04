@@ -1,0 +1,172 @@
+{% extends 'layout.html' %}
+
+{% set title = 'Admin' %}
+
+{% block css %}
+{% endblock %}
+
+{% block body %}
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Create Billing Plan</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="btn-group pull-right navbar-btn">
+          <a class="btn btn-default btn-md" href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid col-sm-offset-2 -->
+  </nav>
+  <div class="row">
+    <div class="col-lg-12">
+       <form class="form-horizontal form-create" role="form" action="{{ url_for('create') }}" method=post>
+        <fieldset>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="name">Name</label>
+          <div class="col-sm-10 controls">
+            <input id="name" name="name" type="text" placeholder="billing plan name" class="input-xlarge form-control" required="">
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="description">Description</label>
+          <div class="col-sm-10 controls">
+            <input id="description" name="description" type="text" placeholder="description of plan" class="input-xlarge form-control" required="">
+            
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="type">Type of plan</label>
+          <div class="col-sm-10 controls">
+            <select id="type" name="type" class="input-xlarge">
+              <option>fixed</option>
+              <option>infinite</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="payment_name">Payment Definition Name</label>
+          <div class="col-sm-10 controls">
+            <input id="payment_name" name="payment_name" type="text" placeholder="payment definition name" class="input-xlarge form-control" required="">
+            
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="payment_type">Type</label>
+          <div class="col-sm-10 controls">
+            <select id="payment_type" name="payment_type" class="input-xlarge">
+              <option>Regular</option>
+              <option>Trial</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="frequency">Frequency</label>
+          <div class="col-sm-10 controls">
+            <select id="frequency" name="frequency" class="input-xlarge">
+              <option>MONTH</option>
+              <option>WEEK</option>
+              <option>DAY</option>
+              <option>YEAR</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="frequency_interval">Frequency Interval</label>
+          <div class="col-sm-10 controls">
+            <input id="frequency_interval" name="frequency_interval" type="text" placeholder="how frequently to charge customer" class="input-xlarge form-control" required="">
+            
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="cycles">Cycles</label>
+          <div class="col-sm-10 controls">
+            <input id="cycles" name="cycles" type="text" placeholder="number of cycles plan is active for" class="input-xlarge form-control">
+            
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="amount">Amount</label>
+          <div class="col-sm-10 controls">
+            <input id="amount" name="amount" type="text" placeholder="amount" class="input-xlarge form-control" required="">
+            
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="currency">Currency</label>
+          <div class="col-sm-10 controls">
+            <select id="currency" name="currency" class="input-xlarge">
+              <option>USD</option>
+              <option>GBP</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="setup_fee">Setup Fee</label>
+          <div class="col-sm-10 controls">
+            <input id="setup_fee" name="setup_fee" type="text" placeholder="setup fee amount" class="input-xlarge form-control">
+            
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="tax">Tax</label>
+          <div class="col-sm-10 controls">
+            <input id="tax" name="tax" type="text" placeholder="tax amount" class="input-xlarge form-control">
+            
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="shipping">Shipping</label>
+          <div class="col-sm-10 controls">
+            <input id="shipping" name="shipping" type="text" placeholder="shipping amount" class="input-xlarge form-control">
+            
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="return_url">Return Url</label>
+          <div class="col-sm-10 controls">
+            <input id="return_url" name="return_url" type="text" placeholder="return url for paypal payments" class="input-xlarge form-control">
+            
+          </div>
+        </div>
+        <button type="submit" class="btn btn-default btn-md pull-right">
+          <span class="glyphicon glyphicon-plus"></span> Create
+        </button>
+      </fieldset>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

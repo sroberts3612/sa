@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>{{ title }} | Hipster Magazine </title>
+
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://startbootstrap.com/templates/sb-admin/css/sb-admin.css" rel="stylesheet">
+		<link href="/static/css/main.css" rel="stylesheet">
+		{% block css %}
+		{% endblock %}
+
+	</head>
+	<body>
+
+		<div class="container">
+			{% block body %}
+			{% endblock %}     
+		</div>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		{% block js %}
+		{% endblock %}
+	</body>
+</html>

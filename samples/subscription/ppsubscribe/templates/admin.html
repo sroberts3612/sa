@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% set title = 'Admin' %}
+
+{% block css %}
+{% endblock %}
+
+{% block body %}
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Billing Plans for Merchant</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="btn-group pull-right navbar-btn">
+          <a class="btn btn-default btn-md" href="{{ url_for('create') }}"><span class="glyphicon glyphicon-plus"></span> Create</a>
+          <a class="btn btn-default btn-md" href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="row">
+    <div class="col-lg-12">
+
+      <div class="panel panel-info">
+        <div class="panel-heading"><b>Active Plans</b></div>
+        <ul class="list-group">
+          {% for plan in plans_active %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 text-center">
+              </div>
+              <div class="col-lg-7 col-md-7 section-box">
+                <h3>{{ plan.name }} : {{ plan.description }}</h3>
+                <p><b>Type of plan: </b>{{ plan.type }}</p>
+                <p><b>Create Time: </b>{{ plan.create_time }}</p>
+                <p><b>Update Time: </b>{{ plan.update_time }}</p>
+              </div>
+              <div class="col-lg-2 col-md-2 section-box">
+                <button class="btn btn-success btn-md" type="submit"><span class="glyphicon glyphicon-edit"></span> Update</button>
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="panel panel-info">
+        <div class="panel-heading"><b>Created Plans</b></div>
+        <ul class="list-group">
+          {% for plan in plans_created %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 text-center">
+              </div>
+              <div class="col-lg-7 col-md-7 section-box">
+                <h3>{{ plan.name }} : {{ plan.description }}</h3>
+                <p><b>Type of plan: </b>{{ plan.type }}</p>
+                <p><b>Create Time: </b>{{ plan.create_time }}</p>
+                <p><b>Update Time: </b>{{ plan.update_time }}</p>
+              </div>
+              <div class="col-lg-2 col-md-2 section-box">
+              <form action="{{ url_for('activate', id=plan.id) }}" method="post">
+                <input type="hidden" id="activate" name="activate" value="activate" />
+                <button class="btn btn-success btn-md" type="submit"><span class="glyphicon glyphicon-cloud-upload"></span> Activate</button>
+              </form>
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}
