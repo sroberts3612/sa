@@ -2,7 +2,7 @@ Flask==0.10.1
 Flask-Script==0.6.7
 Jinja2==2.7.1
 MarkupSafe==0.18
-Werkzeug==0.9.4
+Werkzeug==0.15.3
 httplib2==0.8
 itsdangerous==0.23
 mock==1.0.1
